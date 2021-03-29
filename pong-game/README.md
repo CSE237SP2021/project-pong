@@ -1,6 +1,6 @@
 ## HOW TO RUN
 
-Feel free to use our file provided *run.sh* with the following command to see our game:
+Use our provided *run.sh* with the following command in the command line to see our game:
 ```sh
 ./run.sh
 ```
