@@ -1,4 +1,4 @@
-# cse237-project
+# The Classic Game of Pong
 
 John Liu, Kevin Zhang, Nick Giordano 
 
