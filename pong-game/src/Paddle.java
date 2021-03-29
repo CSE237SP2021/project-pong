@@ -19,7 +19,6 @@ public class Paddle extends Rectangle{
 			if(e.getKeyChar() == 's') {
 				moveDown();
 			}
-            break;
         }
         else{
             if(e.getKeyCode() == KeyEvent.VK_UP) {
@@ -28,7 +27,6 @@ public class Paddle extends Rectangle{
 			if(e.getKeyCode() == KeyEvent.VK_DOWN) {
 				moveDown();
 			}
-            break;
         }
 	}
     
