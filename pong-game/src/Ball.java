@@ -28,7 +28,7 @@ public class Ball extends Rectangle{
 		
 	}
 	
-	public void draw(Graphics g) { //Draws ball
+	public void drawBall(Graphics g) { //Draws ball
         g.fillOval(x, y, height, width);
 		g.setColor(Color.white);
 	}
