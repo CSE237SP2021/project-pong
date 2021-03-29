@@ -12,8 +12,8 @@ public class Ball extends Rectangle{
 	Ball(int x, int y, int width, int height){ //ball constructor
 		super(x,y,width,height); 
 		rand = new Random();
-		int randVx = random.nextInt(2);
-        int randVy = random.nextInt(2);
+		int randVx = rand.nextInt(2);
+        int randVy = rand.nextInt(2);
 
 		if(randVx == 0){
             randVx--;
