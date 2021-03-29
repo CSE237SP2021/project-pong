@@ -31,8 +31,8 @@ public class Game extends JPanel implements Runnable{
 
 
     Game() {
-        drawPaddle();
-        drawBall();
+        // drawPaddle();
+        // drawBall();
         score = new Score(WIDTH, HEIGHT);
         this.setFocusable(true);
         this.addKeyListener(new EVENTLISTENER());
@@ -43,18 +43,21 @@ public class Game extends JPanel implements Runnable{
     }
     
     public void paint(Graphics g) {
-
+        image = createImage(getWidth(), getHeight());
+        graphics = image.getGraphics();
+        draw(graphics);
+        g.drawImage(image, 0, 0, this);
     }
 
     public void draw(Graphics g) {
+        score.drawScore(g);
+    }
+
+    public void drawNewPaddle() {
 
     }
 
-    public void drawPaddle() {
-
-    }
-
-    public void drawBall() {
+    public void drawNewBall() {
 
     }
 
@@ -67,7 +70,21 @@ public class Game extends JPanel implements Runnable{
     }
 
     public void run() {
-        
+        long prevTime = System.nanoTime();
+        double tick = 60.0;
+        double ns = 1000000000 / tick;
+        double deltaTime = 0;
+        while(true) {
+            long now = System.nanoTime();
+            deltaTime += (now - prevTime) / ns;
+            prevTime = now;
+            if (deltaTime >= 1) {
+                update();
+                collisions();
+                repaint();
+                deltaTime--;
+            }
+        }
     }
 
     public class EVENTLISTENER extends KeyAdapter {
