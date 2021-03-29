@@ -13,6 +13,6 @@
 ### Tests
 |File Name|Description|
 |---|---|
-|BallTests.java|Tests for some of the methods of Ball class|
-|GameTests.java|Tests for some of the methods of Game class|
-|PaddleTests.java|Tests for some of the methods of Paddle class|
+|BallTest.java|Tests for some of the methods of Ball class|
+|GameTest.java|Tests for some of the methods of Game class|
+|PaddleTest.java|Tests for some of the methods of Paddle class|
