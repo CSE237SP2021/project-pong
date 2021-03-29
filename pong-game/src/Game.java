@@ -31,8 +31,8 @@ public class Game extends JPanel implements Runnable{
 
 
     Game() {
-        // drawPaddle();
-        // drawBall();
+        drawNewPaddle();
+        drawNewBall();
         score = new Score(WIDTH, HEIGHT);
         this.setFocusable(true);
         this.addKeyListener(new EVENTLISTENER());
