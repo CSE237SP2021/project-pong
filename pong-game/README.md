@@ -6,9 +6,13 @@ Welcome to the VS Code Java world. Here is a guideline to help you get started t
 
 The workspace contains two folders by default, where:
 
-- `src`: the folder to maintain sources
+- `src`: the folder to maintain sources. All of the code is within here.
 - `lib`: the folder to maintain dependencies
 
-## Dependency Management
+## HOW TO RUN
 
-The `JAVA DEPENDENCIES` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-pack/blob/master/release-notes/v0.9.0.md#work-with-jar-files-directly).
+Feel free to use our file provided *run.sh* with the following command to see our game:
+```sh
+./run.sh
+```
+Or go ahead and double click the file and choose to run with your terminal.
