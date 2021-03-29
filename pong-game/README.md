@@ -11,4 +11,3 @@ Or go ahead and double click the file and choose to run with your terminal.
 The workspace contains two folders by default, where:
 
 - `src`: the folder to maintain sources. All of the code is within here.
-- `lib`: the folder to maintain dependencies
