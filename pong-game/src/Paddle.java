@@ -1,6 +1,9 @@
 import java.awt.*;
 import java.awt.event.*;
 
+/**
+ * Paddle class is responsible for holding which side of the screen the paddle is on as well as the position and rate of change of the paddle.
+ */
 public class Paddle extends Rectangle{
 
 	int side;
@@ -12,6 +15,10 @@ public class Paddle extends Rectangle{
 		this.side = side;
 	}
 	
+	/**
+	 * 
+	 * @param e is an event that is sent to our EVENTLISTENER class inside Game.java. We use this to check which key on the keyboard is pressed to interact with our paddle.
+	 */
 	public void keyPressed(KeyEvent e) {
 		if (side == 1) {
 			if (e.getKeyCode() == KeyEvent.VK_W) {
@@ -30,6 +37,12 @@ public class Paddle extends Rectangle{
 			}
 		}
 	}
+
+	/**
+	 * keyReleased() is a function to gather which key was pressed and what direction the paddle should thus go.
+	 * 
+	 * @param e is an event that is sent to our EVENTLISTENER class inside Game.java. We use this to check which key on the keyboard is pressed to interact with our paddle.
+	 */
 	public void keyReleased(KeyEvent e) {
 
 		if (side == 1) {
@@ -51,10 +64,17 @@ public class Paddle extends Rectangle{
 		
 	}
 
+	/**
+	 * update() is used to change the position of the paddles.
+	 */
 	public void update() {
 		y += yV;
 	}
 
+	/**
+	 * 
+	 * @param g Graphics is used to render a paddle onto the screen.
+	 */
 	public void drawPaddle(Graphics g) {
 		g.setColor(Color.white);
 		g.fillRect(x, y, width, height);

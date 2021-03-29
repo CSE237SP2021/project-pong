@@ -3,30 +3,31 @@ import java.awt.event.*;
 import java.util.*;
 import javax.swing.*;
 
+/**
+ * The game class is used as the frame to draw and run our pong game off of. 
+ * We utilize libraries recommended for creating a UI and that had plenty of 
+ * walkthroughs for game creation.
+ */
 public class Game extends JPanel implements Runnable{
 
     final int WIDTH = 850;
     final int HEIGHT = 600;
     
+    // Dimension of our game window
     final Dimension DIMENSION = new Dimension(WIDTH, HEIGHT);
     final int BALL_WIDTH = 8;
     final int PADDLE_WIDTH = 20;
     final int PADDLE_HEIGHT = 75;
 
+    // Thread is what we use to "run" our game
     Thread thread;
-
     Image image;
-
+    // Graphics is utilized for drawing what we want into our window like a canvas.
     Graphics graphics;
-
     Random rand;
-
     Paddle player1;
-
     Paddle player2;
-
     Ball ball;
-
 	Score score;
 
 
@@ -42,6 +43,10 @@ public class Game extends JPanel implements Runnable{
         thread.start();
     }
 
+    /**
+     * drawNewPaddle creates the players paddles in the middle of the screen on each side
+     * they are given an id to signify which side they belong to
+     */
     public void drawNewPaddle() {
         int paddle1X = 0;
         int paddle2X = WIDTH - PADDLE_WIDTH;
@@ -52,6 +57,9 @@ public class Game extends JPanel implements Runnable{
 
     }
 
+    /**
+     * drawNewBall creates a ball element in the center of the table that will go in a random direction
+     */
     public void drawNewBall() {
         int ballX = (WIDTH / 2) - BALL_WIDTH;
         rand = new Random();
@@ -60,6 +68,9 @@ public class Game extends JPanel implements Runnable{
 
     }
 
+    /**
+     * @param g this is a window for us to paint on. We create an image with the dimensions of our game frame and utilize this for drawing things such as our paddles and ball and scoreboard.
+     */
     public void paint(Graphics g) {
         image = createImage(getWidth(), getHeight());
         graphics = image.getGraphics();
@@ -68,8 +79,7 @@ public class Game extends JPanel implements Runnable{
     }
 
     /**
-     * 
-     * @param g is the graphics unit that is drawn on to display our paddles and ball and scoreboard
+     * @param g used for drawing components of our paddles and ball and score onto a canvas so to speak to be rendered for view.
      */
     public void draw(Graphics g) {
         player1.drawPaddle(g);
@@ -78,12 +88,20 @@ public class Game extends JPanel implements Runnable{
         score.drawScore(g);
     }
 
+    /**
+     * update() will constantly be called to allow for movement to be more fluid in our delta timer set for the game.
+     */
     public void update() {
         player1.update();
         player2.update();
         ball.update();
     }
 
+    /**
+     * collisions() will handle checking to see if the ball touches the top or bottom frame. It is also responsible for checking if the ball interacts with a players' paddle. This is done through .intersects of the rectangle class.
+     * 
+     * We also check to see if the players' paddles are about to go off the screen and prevent that from happening.
+     */
     public void collisions() {
         if (ball.y <= 0) {
             ball.setYV(-ball.yV);
@@ -114,6 +132,9 @@ public class Game extends JPanel implements Runnable{
 
     }
 
+    /**
+     * run() is part of our Thread. We utilize this for running our game engine. We use a delta timer to run the game which takes influence from minecraft in a way.
+     */
     public void run() {
         long prevTime = System.nanoTime();
         double tick = 60.0;
@@ -132,6 +153,9 @@ public class Game extends JPanel implements Runnable{
         }
     }
 
+    /**
+     * EVENTLISTENER is used to check for keyboard input to send to our player paddles and decide if they should go up or down.
+     */
     public class EVENTLISTENER extends KeyAdapter {
         public void keyPressed(KeyEvent e) {
             player1.keyPressed(e);

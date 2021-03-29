@@ -1,15 +1,17 @@
 import java.util.*;
 import java.awt.*;
 
-
+/**
+ * Ball is a class which holds the velocity of the ball as well as its coordinates on the screen at the moment. 
+ */
 public class Ball extends Rectangle{
     
-    int initV = 2; //Initial velocity
-	Random rand; //Random number
-	int xV; //Initial X velocity
-	int yV; //Initial Y velocity
+    int initV = 2; 
+	Random rand; 
+	int xV; 
+	int yV; 
 	
-	Ball(int x, int y, int width, int height){ //ball constructor
+	Ball(int x, int y, int width, int height){ 
 		super(x,y,width,height); 
 		rand = new Random();
 		int randXV = rand.nextInt(2);
@@ -28,20 +30,27 @@ public class Ball extends Rectangle{
 		
 	}
 	
-	public void drawBall(Graphics g) { //Draws ball
+	/**
+	 * 
+	 * @param g uses Graphics to draw the ball and render it onto the screen.
+	 */
+	public void drawBall(Graphics g) {
         g.fillOval(x, y, height, width);
 		g.setColor(Color.white);
 	}
 
+	/**
+	 * update() is used to allow for the movement of the ball to be more fluid as the delta timer of the game goes by.
+	 */
     public void update() {
 		x += xV;
 		y += yV;
 	}
 
-	public void setXV(int randXV) { //Sets x velocity of ball
+	public void setXV(int randXV) { 
 		xV = randXV;
 	}
-	public void setYV(int randYV) { //Sets y velocity of ball
+	public void setYV(int randYV) { 
 		yV = randYV;
 	}
 
