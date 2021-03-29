@@ -1,3 +1,5 @@
+package app;
+
 import java.awt.*;
 import java.awt.event.*;
 
@@ -6,11 +8,11 @@ import java.awt.event.*;
  */
 public class Paddle extends Rectangle{
 
-	int side;
-	int yV;
-	int deltaY = 10;
+	private int side;
+	private int yV;
+	private int deltaY = 10;
 	
-	Paddle(int x, int y, int width, int height, int side){
+	public Paddle(int x, int y, int width, int height, int side){
 		super(x, y, width, height);
 		this.side = side;
 	}
@@ -78,5 +80,13 @@ public class Paddle extends Rectangle{
 	public void drawPaddle(Graphics g) {
 		g.setColor(Color.white);
 		g.fillRect(x, y, width, height);
+	}
+
+	public int getYV(){
+		return yV;
+	}
+
+	public void setYV(int i) {
+		yV = i;
 	}
 }

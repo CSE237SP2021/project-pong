@@ -1,3 +1,5 @@
+package app;
+
 import java.util.*;
 import java.awt.*;
 
@@ -9,9 +11,9 @@ public class Ball extends Rectangle{
     int initV = 2; 
 	Random rand; 
 	int xV; 
-	int yV; 
+	private int yV; 
 	
-	Ball(int x, int y, int width, int height){ 
+	public Ball(int x, int y, int width, int height){ 
 		super(x,y,width,height); 
 		rand = new Random();
 		int randXV = rand.nextInt(2);
@@ -45,6 +47,14 @@ public class Ball extends Rectangle{
     public void update() {
 		x += xV;
 		y += yV;
+	}
+
+	public int getYV() {
+		return yV;
+	}
+
+	public int getXV() {
+		return xV;
 	}
 
 	public void setXV(int randXV) { 

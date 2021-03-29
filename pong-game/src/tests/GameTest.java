@@ -1,5 +1,11 @@
+package tests;
+
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
+
+import app.Game;
+import app.Ball;
+import app.Paddle;
 
 public class GameTest {
 
@@ -7,32 +13,38 @@ public class GameTest {
     // check to see if ball were to go below or equal to zero that it would change velocity to bounce
     public void testBallCollisionTop() {
         Game g = new Game();
-        g.ball.y = -15;
-        g.ball.yV = 10;
+        Ball b = g.getBall();
+        b.y = -15;
+        b.setYV(10);
         g.collisions();
         int expectedYV = -10;
-        assertEquals(expectedYV, g.ball.yV);
+        assertEquals(expectedYV, b.getYV());
     }
 
     @Test
     // test to see if the ball collides with paddle
     public void testBallCollisionPaddle() {
         Game g = new Game();
-        g.ball.x = 10;
-        g.player1.x = 10;
-        g.ball.xV = -5;
+        Ball b = g.getBall();
+        Paddle p1 = g.getPlayer1();
+        b.x = 10;
+        b.y = 10;
+        p1.x = 10;
+        p1.y = 10;
+        b.setXV(-5);
         g.collisions();
         int expectedXV = 5;
-        assertEquals(expectedXV, g.ball.xV);
+        assertEquals(expectedXV, b.getXV());
     }
 
     @Test
     // Test to see if paddle will collide at the edge of the screen.
     public void testPaddleCollision() {
         Game g = new Game();
-        g.player1.y = -5;
+        Paddle p1 = g.getPlayer1();
+        p1.y = -5;
         g.collisions();
         int expectedY = 0;
-        assertEquals(expectedY, g.player1.y);
+        assertEquals(expectedY, p1.y);
     }
 }

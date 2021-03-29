@@ -1,3 +1,5 @@
+package app;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
@@ -23,15 +25,15 @@ public class Game extends JPanel implements Runnable{
     Thread thread;
     Image image;
     // Graphics is utilized for drawing what we want into our window like a canvas.
-    Graphics graphics;
-    Random rand;
-    Paddle player1;
-    Paddle player2;
-    Ball ball;
-	Score score;
+    private Graphics graphics;
+    private Random rand;
+    private Paddle player1;
+    private Paddle player2;
+    private Ball ball;
+	private Score score;
 
 
-    Game() {
+    public Game() {
         drawNewPaddle();
         drawNewBall();
         score = new Score(WIDTH, HEIGHT);
@@ -104,17 +106,17 @@ public class Game extends JPanel implements Runnable{
      */
     public void collisions() {
         if (ball.y <= 0) {
-            ball.setYV(-ball.yV);
+            ball.setYV(-ball.getYV());
         }
         if (ball.y >= HEIGHT - (BALL_WIDTH * 2)) {
-            ball.setYV(-ball.yV);
+            ball.setYV(-ball.getYV());
         }
 
         if (ball.intersects(player1)) {
-            ball.setXV(-(ball.xV));
+            ball.setXV(-1 * ball.getXV());
         }
         if (ball.intersects(player2)) {
-            ball.setXV(-(ball.xV));
+            ball.setXV(-(ball.getXV()));
         }
 
         if (player1.y <= 0) {
@@ -168,4 +170,11 @@ public class Game extends JPanel implements Runnable{
         }
     }
     
+    public Ball getBall(){
+        return ball;
+    }
+
+    public Paddle getPlayer1() {
+        return player1;
+    }
 }
