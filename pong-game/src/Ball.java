@@ -6,25 +6,25 @@ public class Ball extends Rectangle{
     
     int initV = 2; //Initial velocity
 	Random rand; //Random number
-	int Vx; //Initial X velocity
-	int Vy; //Initial Y velocity
+	int xV; //Initial X velocity
+	int yV; //Initial Y velocity
 	
 	Ball(int x, int y, int width, int height){ //ball constructor
 		super(x,y,width,height); 
 		rand = new Random();
-		int randVx = rand.nextInt(2);
-        int randVy = rand.nextInt(2);
+		int randXV = rand.nextInt(2);
+        int randYV = rand.nextInt(2);
 
-		if(randVx == 0){
-            randVx--;
+		if(randXV == 0){
+            randXV--;
         }
 		
-		if(randVy == 0){
-            randVy--;
+		if(randYV == 0){
+            randYV--;
         }
 
-        setVx(randVx*initV);
-		setVy(randVy*initV);
+        setXV(randXV*initV);
+		setYV(randYV*initV);
 		
 	}
 	
@@ -33,16 +33,16 @@ public class Ball extends Rectangle{
 		g.setColor(Color.white);
 	}
 
-    public void move() {
-		x += Vx;
-		y += Vy;
+    public void update() {
+		x += xV;
+		y += yV;
 	}
 
-	public void setVx(int randVx) { //Sets x velocity of ball
-		Vx = randVx;
+	public void setXV(int randXV) { //Sets x velocity of ball
+		xV = randXV;
 	}
-	public void setVy(int randVy) { //Sets y velocity of ball
-		Vy = randVy;
+	public void setYV(int randYV) { //Sets y velocity of ball
+		yV = randYV;
 	}
 
 
