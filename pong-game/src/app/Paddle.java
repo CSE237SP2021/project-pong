@@ -67,9 +67,9 @@ public class Paddle extends Rectangle{
 	}
 
 	/**
-	 * update() is used to change the position of the paddles.
+	 * move() is used to change the position of the paddles.
 	 */
-	public void update() {
+	public void move() {
 		y += yV;
 	}
 

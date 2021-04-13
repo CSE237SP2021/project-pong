@@ -42,9 +42,9 @@ public class Ball extends Rectangle{
 	}
 
 	/**
-	 * update() is used to allow for the movement of the ball to be more fluid as the delta timer of the game goes by.
+	 * move() is used to allow for the movement of the ball to be more fluid as the delta timer of the game goes by.
 	 */
-    public void update() {
+    public void move() {
 		x += xV;
 		y += yV;
 	}

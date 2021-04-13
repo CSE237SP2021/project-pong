@@ -94,9 +94,9 @@ public class Game extends JPanel implements Runnable{
      * update() will constantly be called to allow for movement to be more fluid in our delta timer set for the game.
      */
     public void update() {
-        player1.update();
-        player2.update();
-        ball.update();
+        player1.move();
+        player2.move();
+        ball.move();
     }
 
     /**
