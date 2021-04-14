@@ -6,7 +6,7 @@ Our project is recreating the classic game pong in Java. We wish to create a gam
 
 ## Running the game
 
-Use our provided run.sh with the following command in the command line to see our game: ./run.sh
+Use our provided run.sh with the following command in the command line to see our game: `./run.sh`
 Or go ahead and double click the file and choose to run with your terminal.
 
 ## Iter 1
