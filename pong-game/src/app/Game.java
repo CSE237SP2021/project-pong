@@ -112,6 +112,13 @@ public class Game extends JPanel implements Runnable{
             ball.setYV(-ball.getYV());
         }
 
+        if (ball.x <= 0) {
+            score.updateScore(1);
+        }
+        if (ball.x >= WIDTH - (BALL_WIDTH * 2)) {
+            score.updateScore(2);
+        }
+
         if (ball.intersects(player1)) {
             ball.setXV(-1 * ball.getXV());
         }
