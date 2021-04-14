@@ -13,7 +13,7 @@ public class PaddleTest {
         Paddle p = new Paddle(0, 0, 5, 5, 1);
         p.setYV(10);
         int expectedUpdate = 10;
-        p.update();
+        p.move();
         assertEquals(expectedUpdate, p.y);
     }    
 }

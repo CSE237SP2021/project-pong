@@ -112,13 +112,6 @@ public class Game extends JPanel implements Runnable{
             ball.setYV(-ball.getYV());
         }
 
-        if (ball.x <= 0) {
-            score.updateScore(1);
-        }
-        if (ball.x >= WIDTH - (BALL_WIDTH * 2)) {
-            score.updateScore(2);
-        }
-
         if (ball.intersects(player1)) {
             ball.setXV(-1 * ball.getXV());
         }
@@ -142,6 +135,20 @@ public class Game extends JPanel implements Runnable{
     }
 
     /**
+     * 
+     */
+    public void scoring(){
+        if (ball.x <= 0) {
+            score.updateScore(1);
+            drawNewBall();
+        }
+        if (ball.x >= WIDTH - (BALL_WIDTH * 2)) {
+            score.updateScore(2);
+            drawNewBall();
+        }
+
+    }
+    /**
      * run() is part of our Thread. We utilize this for running our game engine. We use a delta timer to run the game which takes influence from minecraft in a way.
      */
     public void run() {
@@ -156,6 +163,7 @@ public class Game extends JPanel implements Runnable{
             if (deltaTime >= 1) {
                 update();
                 collisions();
+                scoring();
                 repaint();
                 deltaTime--;
             }
