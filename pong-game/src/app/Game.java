@@ -34,7 +34,7 @@ public class Game extends JPanel implements Runnable{
 
 
     public Game() {
-        drawNewPaddle();
+        drawNewPaddles();
         drawNewBall();
         score = new Score(WIDTH, HEIGHT);
         this.setFocusable(true);
@@ -46,10 +46,10 @@ public class Game extends JPanel implements Runnable{
     }
 
     /**
-     * drawNewPaddle creates the players paddles in the middle of the screen on each side
+     * drawNewPaddles creates the players paddles in the middle of the screen on each side
      * they are given an id to signify which side they belong to
      */
-    public void drawNewPaddle() {
+    public void drawNewPaddles() {
         int paddle1X = 0;
         int paddle2X = WIDTH - PADDLE_WIDTH;
         int paddleY = HEIGHT / 2;
@@ -135,6 +135,20 @@ public class Game extends JPanel implements Runnable{
     }
 
     /**
+     * scoring() will check if the ball goes off the screen on the right or left. If it does, update the score and reset the ball to the middle. 
+     */
+    public void scoring(){
+        if (ball.x <= 0) {
+            score.updateScore(1);
+            drawNewBall();
+        }
+        if (ball.x >= WIDTH - (BALL_WIDTH * 2)) {
+            score.updateScore(2);
+            drawNewBall();
+        }
+
+    }
+    /**
      * run() is part of our Thread. We utilize this for running our game engine. We use a delta timer to run the game which takes influence from minecraft in a way.
      */
     public void run() {
@@ -149,6 +163,7 @@ public class Game extends JPanel implements Runnable{
             if (deltaTime >= 1) {
                 update();
                 collisions();
+                scoring();
                 repaint();
                 deltaTime--;
             }
