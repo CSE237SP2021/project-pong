@@ -28,8 +28,13 @@ public class Score {
         g.drawString(String.valueOf(player2/10) + String.valueOf(player2%10), (int)(WIDTH * 0.5) +  40, 50);
     }
 
-    public void updateScore(){
-        
+    public void updateScore(int playerScore){
+        if(playerScore == 1){
+            player2++;
+        }
+        if(playerScore == 2){
+            player1++;
+        }
     }
     
 }

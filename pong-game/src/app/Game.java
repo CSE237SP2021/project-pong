@@ -34,7 +34,7 @@ public class Game extends JPanel implements Runnable{
 
 
     public Game() {
-        drawNewPaddle();
+        drawNewPaddles();
         drawNewBall();
         score = new Score(WIDTH, HEIGHT);
         this.setFocusable(true);
@@ -46,10 +46,10 @@ public class Game extends JPanel implements Runnable{
     }
 
     /**
-     * drawNewPaddle creates the players paddles in the middle of the screen on each side
+     * drawNewPaddles creates the players paddles in the middle of the screen on each side
      * they are given an id to signify which side they belong to
      */
-    public void drawNewPaddle() {
+    public void drawNewPaddles() {
         int paddle1X = 0;
         int paddle2X = WIDTH - PADDLE_WIDTH;
         int paddleY = HEIGHT / 2;
