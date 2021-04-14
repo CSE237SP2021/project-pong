@@ -8,4 +8,4 @@ Our project is recreating the classic game pong in Java. We wish to create a gam
 In this iteration, we completed all the basic game functions: the ball moves, the paddles move, and the ball ricochets off of the walls and the paddles. For the next iteration, we intend to complete scoring, as well as work on an AI to allow players to play single player. We have provided a script that will run the game. 
 
 ## Iter 2
-In this iteration, we added scoring so that the game would track and show the scores of the players as they play. In addition, we added a menu bar that allows the player to start a new game, exit, and eventually switch between single and multi-player. Looking forward, we will be looking to add the aformentioned single-player mode in which the player can play with an ai.
+In this iteration, we added scoring so that the game would track and show the scores of the players as they play. In addition, we added a menu bar that allows the players to start a new game, exit, and eventually switch between single and multi-player. Looking forward, we will be looking to add the aformentioned single-player mode in which the player can play with an ai.
