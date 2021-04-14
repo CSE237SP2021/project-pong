@@ -1,2 +1,2 @@
 #bin/bash
-java -jar project.jar
+java -jar project-pong.jar
