@@ -74,6 +74,20 @@ public class Paddle extends Rectangle{
 	}
 
 	/**
+	 * checks if paddle is on the edge, keeps it from going off the screen
+	 * @param height height of the game container
+	 * @param paddle_height height of the paddle
+	 */
+	public void isOnEdge(int height, int paddle_height){
+		if (this.y <= 0){
+			this.y = 0;
+		}
+		if (this.y >= height - paddle_height - 25){
+			this.y = height - paddle_height - 25;
+		}
+	}
+
+	/**
 	 * 
 	 * @param g Graphics is used to render a paddle onto the screen.
 	 */

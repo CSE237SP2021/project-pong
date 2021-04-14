@@ -49,6 +49,30 @@ public class Ball extends Rectangle{
 		y += yV;
 	}
 
+	/**
+	 * checks if ball is on the edge of the screen, changes direction to make it bounce
+	 * @param height height of the game container
+	 * @param ball_width width of the ball
+	 */
+	public void onEdge(int height, int ball_width){
+		if (this.y <= 0) {
+            this.yV = this.yV * -1;
+        }
+        if (this.y >= height - (ball_width * 2) - 25) {
+            this.yV = this.yV * -1;
+        }
+	}
+
+	/**
+	 * check if ball is on the player paddle, if so bounce off
+	 * @param player player paddle to bounce on
+	 */
+	public void onPaddle(Paddle player){
+		if (this.intersects(player)) {
+            this.xV = this.xV * -1;
+        }
+	}
+
 	public int getYV() {
 		return yV;
 	}

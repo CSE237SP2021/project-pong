@@ -105,32 +105,13 @@ public class Game extends JPanel implements Runnable{
      * We also check to see if the players' paddles are about to go off the screen and prevent that from happening.
      */
     public void collisions() {
-        if (ball.y <= 0) {
-            ball.setYV(-ball.getYV());
-        }
-        if (ball.y >= HEIGHT - (BALL_WIDTH * 2)) {
-            ball.setYV(-ball.getYV());
-        }
+        ball.onEdge(HEIGHT, BALL_WIDTH);
 
-        if (ball.intersects(player1)) {
-            ball.setXV(-1 * ball.getXV());
-        }
-        if (ball.intersects(player2)) {
-            ball.setXV(-(ball.getXV()));
-        }
+        ball.onPaddle(player1);
+        ball.onPaddle(player2);
 
-        if (player1.y <= 0) {
-            player1.y = 0;
-        }
-        if (player1.y >= HEIGHT-PADDLE_HEIGHT) {
-            player1.y = HEIGHT-PADDLE_HEIGHT;
-        } 
-        if (player2.y <= 0) {
-            player2.y = 0;
-        }
-        if (player2.y >= HEIGHT-PADDLE_HEIGHT) {
-            player2.y = HEIGHT-PADDLE_HEIGHT;
-        } 
+        player1.isOnEdge(HEIGHT, PADDLE_HEIGHT);
+        player2.isOnEdge(HEIGHT, PADDLE_HEIGHT);
 
     }
 

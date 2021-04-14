@@ -36,5 +36,10 @@ public class Score {
             player1++;
         }
     }
+
+    public void resetScore(){
+        player1 = 0;
+        player2 = 0;
+    }
     
 }
