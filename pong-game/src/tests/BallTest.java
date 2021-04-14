@@ -1,6 +1,7 @@
 package tests;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import app.Ball;
@@ -12,7 +13,7 @@ public class BallTest {
     public void testUpdate() {
         Ball b = new Ball(0, 0, 0 ,0);
         b.setYV(10);
-        b.update();
+        b.move();
         int expectedY = 10;
         assertEquals(expectedY, b.y);
     }

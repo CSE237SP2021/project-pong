@@ -34,7 +34,7 @@ public class Game extends JPanel implements Runnable{
 
 
     public Game() {
-        drawNewPaddle();
+        drawNewPaddles();
         drawNewBall();
         score = new Score(WIDTH, HEIGHT);
         this.setFocusable(true);
@@ -46,10 +46,10 @@ public class Game extends JPanel implements Runnable{
     }
 
     /**
-     * drawNewPaddle creates the players paddles in the middle of the screen on each side
+     * drawNewPaddles creates the players paddles in the middle of the screen on each side
      * they are given an id to signify which side they belong to
      */
-    public void drawNewPaddle() {
+    public void drawNewPaddles() {
         int paddle1X = 0;
         int paddle2X = WIDTH - PADDLE_WIDTH;
         int paddleY = HEIGHT / 2;
@@ -94,9 +94,9 @@ public class Game extends JPanel implements Runnable{
      * update() will constantly be called to allow for movement to be more fluid in our delta timer set for the game.
      */
     public void update() {
-        player1.update();
-        player2.update();
-        ball.update();
+        player1.move();
+        player2.move();
+        ball.move();
     }
 
     /**
@@ -105,35 +105,30 @@ public class Game extends JPanel implements Runnable{
      * We also check to see if the players' paddles are about to go off the screen and prevent that from happening.
      */
     public void collisions() {
-        if (ball.y <= 0) {
-            ball.setYV(-ball.getYV());
-        }
-        if (ball.y >= HEIGHT - (BALL_WIDTH * 2)) {
-            ball.setYV(-ball.getYV());
-        }
+        ball.onEdge(HEIGHT, BALL_WIDTH);
 
-        if (ball.intersects(player1)) {
-            ball.setXV(-1 * ball.getXV());
-        }
-        if (ball.intersects(player2)) {
-            ball.setXV(-(ball.getXV()));
-        }
+        ball.onPaddle(player1);
+        ball.onPaddle(player2);
 
-        if (player1.y <= 0) {
-            player1.y = 0;
-        }
-        if (player1.y >= HEIGHT-PADDLE_HEIGHT) {
-            player1.y = HEIGHT-PADDLE_HEIGHT;
-        } 
-        if (player2.y <= 0) {
-            player2.y = 0;
-        }
-        if (player2.y >= HEIGHT-PADDLE_HEIGHT) {
-            player2.y = HEIGHT-PADDLE_HEIGHT;
-        } 
+        player1.isOnEdge(HEIGHT, PADDLE_HEIGHT);
+        player2.isOnEdge(HEIGHT, PADDLE_HEIGHT);
 
     }
 
+    /**
+     * scoring() will check if the ball goes off the screen on the right or left. If it does, update the score and reset the ball to the middle. 
+     */
+    public void scoring(){
+        if (ball.x <= 0) {
+            score.updateScore(1);
+            drawNewBall();
+        }
+        if (ball.x >= WIDTH - (BALL_WIDTH * 2)) {
+            score.updateScore(2);
+            drawNewBall();
+        }
+
+    }
     /**
      * run() is part of our Thread. We utilize this for running our game engine. We use a delta timer to run the game which takes influence from minecraft in a way.
      */
@@ -149,6 +144,7 @@ public class Game extends JPanel implements Runnable{
             if (deltaTime >= 1) {
                 update();
                 collisions();
+                scoring();
                 repaint();
                 deltaTime--;
             }
