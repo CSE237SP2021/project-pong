@@ -135,7 +135,7 @@ public class Game extends JPanel implements Runnable{
     }
 
     /**
-     * 
+     * scoring() will check if the ball goes off the screen on the right or left. If it does, update the score and reset the ball to the middle. 
      */
     public void scoring(){
         if (ball.x <= 0) {
