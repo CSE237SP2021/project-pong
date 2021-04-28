@@ -18,12 +18,14 @@ public class GameContainer extends JFrame implements ActionListener{
 
     GameContainer() {
 
+        //Creates JMenuBar with the Settings and Options tabs
         menuBar = new JMenuBar();
         menu = new JMenu("Options");
         menuBar.add(menu);
         menu2 = new JMenu("Settings");
         menuBar.add(menu2);
 
+        //Adds Start New Game and Exit Game tabs under Options tab of menu
         newGame = new JMenuItem("Start New Game");
         newGame.addActionListener(this);
         menu.add(newGame);
@@ -32,6 +34,7 @@ public class GameContainer extends JFrame implements ActionListener{
         exitGame.addActionListener(this);
         menu.add(exitGame);
 
+        //Adds Single-Player Mode and Multiplayer Mode tabs under Settings tab of menu
         singlePlayer = new JMenuItem("Single-Player Mode");
         singlePlayer.addActionListener(this);
         menu2.add(singlePlayer);
@@ -56,7 +59,7 @@ public class GameContainer extends JFrame implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e){
         if (e.getSource() == newGame) {
-            //Set scores to zero
+            //Set scores to zero if new game is selected
             game.getScore().resetScore();
             game.drawNewPaddles();
             game.drawNewBall();
