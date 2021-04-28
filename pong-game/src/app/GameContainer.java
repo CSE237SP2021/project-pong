@@ -33,9 +33,11 @@ public class GameContainer extends JFrame implements ActionListener{
         menu.add(exitGame);
 
         singlePlayer = new JMenuItem("Single-Player Mode");
+        singlePlayer.addActionListener(this);
         menu2.add(singlePlayer);
 
         multiPlayer = new JMenuItem("Multiplayer Mode");
+        multiPlayer.addActionListener(this);
         menu2.add(multiPlayer);
 
 
@@ -64,9 +66,17 @@ public class GameContainer extends JFrame implements ActionListener{
         }
         if (e.getSource() == singlePlayer) {
             //Set game to single player mode
+            game.setSinglePlayer();
+            game.getScore().resetScore();
+            game.drawNewPaddles();
+            game.drawNewBall();
         }
         if (e.getSource() == multiPlayer) {
             //Set game to multi-player mode
+            game.setMultiPlayer();
+            game.getScore().resetScore();
+            game.drawNewPaddles();
+            game.drawNewBall();
         }
     }
 }
