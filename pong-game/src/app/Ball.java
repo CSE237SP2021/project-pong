@@ -8,90 +8,85 @@ import java.awt.*;
  */
 public class Ball extends Rectangle{
     
-    int initV = 4; 
-	Random rand; 
-	int xV; 
-	private int yV; 
+    //velo = velocity for clarity. 
+    int initVelo = 4;
+    Random rand;
+    int xVelo;
+    private int yVelo;
 	
-	public Ball(int x, int y, int width, int height){ 
-		super(x,y,width,height); 
-		rand = new Random();
-		int randXV = rand.nextInt(2);
-        int randYV = rand.nextInt(2);
+    public Ball(int x, int y, int width, int height){
+	super(x,y,width,height);
+	rand = new Random();
+	int randXVelo = rand.nextInt(2);
+        int randYVelo = rand.nextInt(2);
 
-		if(randXV == 0){
-            randXV--;
+	if(randXVelo == 0){
+            randXVelo--;
         }
 		
-		if(randYV == 0){
-            randYV--;
+	if(randYVelo == 0){
+            randYVelo--;
         }
 
-        setXV(randXV*initV);
-		setYV(randYV*initV);
-		
-	}
+        setXVelo(randXVelo*initVelo);
+	setYVelo(randYVelo*initVelo);
+    }
 	
-	/**
-	 * 
-	 * @param g uses Graphics to draw the ball and render it onto the screen.
-	 */
-	public void drawBall(Graphics g) {
+    /**
+     *
+     * @param g uses Graphics to draw the ball and render it onto the screen.
+     */
+    public void drawBall(Graphics g) {
         g.fillOval(x, y, height, width);
-		g.setColor(Color.white);
-	}
+	g.setColor(Color.white);
+    }
 
-	/**
-	 * move() is used to allow for the movement of the ball to be more fluid as the delta timer of the game goes by.
-	 */
+    /**
+     * move() is used to allow for the movement of the ball to be more fluid as the delta timer of the game goes by.
+     */
     public void move() {
-		x += xV;
-		y += yV;
-	}
+	x += xVelo;
+	y += yVelo;
+    }
 
-	/**
-	 * checks if ball is on the edge of the screen, changes direction to make it bounce
-	 * @param height height of the game container
-	 * @param ball_width width of the ball
-	 */
-	public void onEdge(int height, int ball_width){
-		if (this.y <= 0) {
-            this.yV = this.yV * -1;
+    /**
+     * checks if ball is on the edge of the screen, changes direction to make it bounce
+     * @param height height of the game container
+     * @param ball_width width of the ball
+     */
+    public void onEdge(int height, int ball_width){
+	if (this.y <= 0) {
+            this.yVelo = this.yVelo * -1;
         }
         if (this.y >= height - (ball_width * 2) - 25) {
-            this.yV = this.yV * -1;
+            this.yVelo = this.yVelo * -1;
         }
-	}
+    }
 
-	/**
-	 * check if ball is on the player paddle, if so bounce off
-	 * @param player player paddle to bounce on
-	 */
-	public void onPaddle(Paddle player){
-		if (this.intersects(player)) {
-            this.xV = this.xV * -1;
+    /**
+     * check if ball is on the player paddle, if so bounce off
+     * @param player player paddle to bounce on
+     */
+    public void onPaddle(Paddle player){
+	if (this.intersects(player)) {
+            this.xVelo = this.xVelo * -1;
         }
-	}
+    }
 
-	//Get y velocity
-	public int getYV() {
-		return yV;
-	}
+    public int getYVelo() {
+	return yVelo;
+    }
 
-	//Get x velocity
-	public int getXV() {
-		return xV;
-	}
+    public int getXVelo() {
+	return xVelo;
+    }
 
-	//Set x velocity
-	public void setXV(int randXV) { 
-		xV = randXV;
-	}
+    public void setXVelo(int randXVelo) {
+	xVelo = randXVelo;
+    }
 
-	//Set y velocity
-	public void setYV(int randYV) { 
-		yV = randYV;
-	}
-
+    public void setYVelo(int randYVelo) {
+	yVelo = randYVelo;
+    }
 
 }
