@@ -29,8 +29,8 @@ public class Game extends JPanel implements Runnable{
     private Random rand;
     private Paddle player1;
     private Paddle player2;
-    private Ball ball;
-	private Score score;
+    private Ball ball;	
+    private Score score;
     private Boolean multiplayer;
 
 
@@ -58,7 +58,6 @@ public class Game extends JPanel implements Runnable{
         int [] side = new int [] {1, 2};
         player1 = new Paddle(paddle1X, paddleY, PADDLE_WIDTH, PADDLE_HEIGHT, side[0]);
         player2 = new Paddle(paddle2X, paddleY, PADDLE_WIDTH, PADDLE_HEIGHT, side[1]);
-
     }
 
     /**
@@ -69,7 +68,6 @@ public class Game extends JPanel implements Runnable{
         rand = new Random();
         int ballY = rand.nextInt(HEIGHT - (BALL_WIDTH * 2));
         ball = new Ball(ballX, ballY, BALL_WIDTH * 2, BALL_WIDTH * 2);
-
     }
 
     /**
@@ -119,7 +117,6 @@ public class Game extends JPanel implements Runnable{
 
         player1.isOnEdge(HEIGHT, PADDLE_HEIGHT);
         player2.isOnEdge(HEIGHT, PADDLE_HEIGHT);
-
     }
 
     /**
@@ -134,8 +131,8 @@ public class Game extends JPanel implements Runnable{
             score.updateScore(2);
             drawNewBall();
         }
-
     }
+
     /**
      * run() is part of our Thread. We utilize this for running our game engine. We use a delta timer to run the game which takes influence from minecraft in a way.
      */
