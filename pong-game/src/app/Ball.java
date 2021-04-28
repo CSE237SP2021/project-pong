@@ -8,7 +8,7 @@ import java.awt.*;
  */
 public class Ball extends Rectangle{
     
-    int initV = 2; 
+    int initV = 4; 
 	Random rand; 
 	int xV; 
 	private int yV; 
@@ -73,17 +73,22 @@ public class Ball extends Rectangle{
         }
 	}
 
+	//Get y velocity
 	public int getYV() {
 		return yV;
 	}
 
+	//Get x velocity
 	public int getXV() {
 		return xV;
 	}
 
+	//Set x velocity
 	public void setXV(int randXV) { 
 		xV = randXV;
 	}
+
+	//Set y velocity
 	public void setYV(int randYV) { 
 		yV = randYV;
 	}

@@ -31,9 +31,11 @@ public class Game extends JPanel implements Runnable{
     private Paddle player2;
     private Ball ball;
 	private Score score;
+    private Boolean multiplayer;
 
 
     public Game() {
+        multiplayer = true;
         drawNewPaddles();
         drawNewBall();
         score = new Score(WIDTH, HEIGHT);
@@ -94,9 +96,14 @@ public class Game extends JPanel implements Runnable{
      * update() will constantly be called to allow for movement to be more fluid in our delta timer set for the game.
      */
     public void update() {
-        player1.move();
-        player2.move();
         ball.move();
+        if (multiplayer) {
+            player1.move();
+            player2.move();
+        } else {
+            player1.move();
+            player2.moveAI(ball);
+        }
     }
 
     /**
@@ -157,12 +164,16 @@ public class Game extends JPanel implements Runnable{
     public class EVENTLISTENER extends KeyAdapter {
         public void keyPressed(KeyEvent e) {
             player1.keyPressed(e);
-            player2.keyPressed(e);
+            if (multiplayer) {
+                player2.keyPressed(e);
+            }
         }
 
         public void keyReleased(KeyEvent e) {
             player1.keyReleased(e);
-            player2.keyReleased(e);
+            if (multiplayer) {
+                player2.keyReleased(e);
+            }
         }
     }
     
@@ -173,4 +184,17 @@ public class Game extends JPanel implements Runnable{
     public Paddle getPlayer1() {
         return player1;
     }
+
+    public Score getScore() {
+        return score;
+    } 
+
+    public void setSinglePlayer() {
+        multiplayer = false;
+    }
+
+    public void setMultiPlayer() {
+        multiplayer = true;
+    }
+    
 }

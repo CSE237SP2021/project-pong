@@ -73,6 +73,14 @@ public class Paddle extends Rectangle{
 		y += yV;
 	}
 
+	public void moveAI(Ball b) {
+		if (y > b.y) {
+			y -= 3;
+		} else if (y < b.y) {
+			y += 3;
+		} 
+	}
+
 	/**
 	 * checks if paddle is on the edge, keeps it from going off the screen
 	 * @param height height of the game container
