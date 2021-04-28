@@ -1,10 +1,7 @@
 package app;
 
 import java.awt.Color;
-import java.awt.Graphics;
-
 import javax.swing.*;
-
 import java.awt.event.*;
 
 /**
@@ -16,7 +13,7 @@ public class GameContainer extends JFrame implements ActionListener{
     JFrame frame;
     JMenuBar menuBar;
     JMenu menu, menu2;
-    JMenuItem newGame, exitGame, menuItem3, menuItem4;
+    JMenuItem newGame, exitGame, singlePlayer, multiPlayer;
     JCheckBoxMenuItem checkItem1, checkItem2;
 
     GameContainer() {
@@ -35,11 +32,11 @@ public class GameContainer extends JFrame implements ActionListener{
         exitGame.addActionListener(this);
         menu.add(exitGame);
 
-        menuItem3 = new JMenuItem("Single-Player Mode");
-        menu2.add(menuItem3);
+        singlePlayer = new JMenuItem("Single-Player Mode");
+        menu2.add(singlePlayer);
 
-        menuItem4 = new JMenuItem("Multiplayer Mode");
-        menu2.add(menuItem4);
+        multiPlayer = new JMenuItem("Multiplayer Mode");
+        menu2.add(multiPlayer);
 
 
         game = new Game();
@@ -65,10 +62,10 @@ public class GameContainer extends JFrame implements ActionListener{
         if (e.getSource() == exitGame) {
             System.exit(0);
         }
-        if (e.getSource() == menuItem3) {
+        if (e.getSource() == singlePlayer) {
             //Set game to single player mode
         }
-        if (e.getSource() == menuItem4) {
+        if (e.getSource() == multiPlayer) {
             //Set game to multi-player mode
         }
     }
