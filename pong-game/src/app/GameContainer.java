@@ -1,10 +1,12 @@
 package app;
 
 import java.awt.Color;
+import java.awt.Graphics;
 
 import javax.swing.*;
 
 import java.awt.event.*;
+
 /**
  * GameContainer is a class which creates a wrapper around the canvas of the game. This is responsible for holding the game rendering as well as giving the user ability to close the game and such.
  */
@@ -14,7 +16,7 @@ public class GameContainer extends JFrame implements ActionListener{
     JFrame frame;
     JMenuBar menuBar;
     JMenu menu, menu2;
-    JMenuItem menuItem1, menuItem2, menuItem3, menuItem4;
+    JMenuItem newGame, exitGame, menuItem3, menuItem4;
     JCheckBoxMenuItem checkItem1, checkItem2;
 
     GameContainer() {
@@ -25,13 +27,13 @@ public class GameContainer extends JFrame implements ActionListener{
         menu2 = new JMenu("Settings");
         menuBar.add(menu2);
 
-        menuItem1 = new JMenuItem("Start New Game");
-        menuItem1.addActionListener(this);
-        menu.add(menuItem1);
+        newGame = new JMenuItem("Start New Game");
+        newGame.addActionListener(this);
+        menu.add(newGame);
 
-        menuItem2 = new JMenuItem("Exit Game");
-        menuItem2.addActionListener(this);
-        menu.add(menuItem2);
+        exitGame = new JMenuItem("Exit Game");
+        exitGame.addActionListener(this);
+        menu.add(exitGame);
 
         menuItem3 = new JMenuItem("Single-Player Mode");
         menu2.add(menuItem3);
@@ -54,10 +56,13 @@ public class GameContainer extends JFrame implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e){
-        if (e.getSource() == menuItem1) {
+        if (e.getSource() == newGame) {
             //Set scores to zero
+            game.getScore().resetScore();
+            game.drawNewPaddles();
+            game.drawNewBall();
         }
-        if (e.getSource() == menuItem2) {
+        if (e.getSource() == exitGame) {
             System.exit(0);
         }
         if (e.getSource() == menuItem3) {

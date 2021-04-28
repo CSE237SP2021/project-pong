@@ -173,4 +173,9 @@ public class Game extends JPanel implements Runnable{
     public Paddle getPlayer1() {
         return player1;
     }
+
+    public Score getScore() {
+        return score;
+    }
+    
 }

@@ -8,7 +8,7 @@ import java.awt.*;
  */
 public class Ball extends Rectangle{
     
-    int initV = 2; 
+    int initV = 4; 
 	Random rand; 
 	int xV; 
 	private int yV; 
