@@ -12,7 +12,7 @@ public class Score {
     static int player1 = 0;
     static int player2 = 0;
 
-    Score (int WIDTH, int HEIGHT) {
+    public Score (int WIDTH, int HEIGHT) {
         Score.WIDTH = WIDTH;
         Score.HEIGHT = HEIGHT;
     }
@@ -35,6 +35,19 @@ public class Score {
         if(playerScore == 2){
             player1++;
         }
+    }
+
+    public void resetScore(){
+        player1 = 0;
+        player2 = 0;
+    }
+
+    public int getScoreOne() {
+        return this.player1;
+    }
+    
+    public int getScoreTwo() {
+        return this.player2;
     }
     
 }

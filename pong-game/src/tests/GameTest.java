@@ -6,6 +6,7 @@ import org.junit.Test;
 import app.Game;
 import app.Ball;
 import app.Paddle;
+import app.Score;
 
 public class GameTest {
 
@@ -46,5 +47,19 @@ public class GameTest {
         g.collisions();
         int expectedY = 0;
         assertEquals(expectedY, p1.y);
+    }
+
+    @Test
+    
+    public void testScoring() {
+
+        Game g = new Game();
+        Ball b = g.getBall();
+        Score score = new Score(850, 600);
+        b.x = -1;
+        g.scoring();
+        int expectedValue = score.getScoreTwo();
+        assertEquals(expectedValue, 1);
+        
     }
 }
