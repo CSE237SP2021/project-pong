@@ -2,7 +2,7 @@
 
 John Liu, Kevin Zhang, Nick Giordano 
 
-Our project is recreating the classic game pong in Java. We wish to create a game with a UI which will ultimately open up to a main menu of the game where you can select to play either single player versus a very awful bot or can choose to play multiplayer with a local friend. We are toying with the idea also of a settings tab where you can customize paddle color and other things.
+Our project is recreating the classic game pong in Java. We wish to create a game with a UI which will ultimately open up to a main menu of the game where you can select to play either single player versus a very awful bot or can choose to play multiplayer with a local friend. A menu at the top allows players to restart or exit the game, and change from singleplayer to multiplayer or vice versa. 
 
 ## Running the game
 
@@ -16,4 +16,4 @@ In this iteration, we completed all the basic game functions: the ball moves, th
 In this iteration, we added scoring so that the game would track and show the scores of the players as they play. In addition, we added a menu bar that allows the players to start a new game, exit, and eventually switch between single and multi-player. Looking forward, we will be looking to add the aformentioned single-player mode in which the player can play with an ai.
 
 ## Iter 3
-We added functionality to the menu bar at the top of the game. One can now create a new game and it will reset the state of the game, exit the game and close the app, switch between single player (vs "AI") or multiplayer (vs a friend). We also went through and made an attempt to refactor some of the code for the project and make it a little more clean. Also added additional comments and worked on tests, however, no new tests needed to be added for the extended functionality since it was achieved through the addition of setters and getters.
+We added functionality to the menu bar at the top of the game. One can now create a new game and it will reset the state of the game, exit the game and close the app, switch between single player (vs "AI") or multiplayer (vs a friend). We also went through and made an attempt to refactor some of the code for the project and make it a little more clean, as well as clean up some formatting issues. Also added additional comments and worked on tests, however, no new tests needed to be added for the extended functionality since it was achieved through the addition of setters and getters.
